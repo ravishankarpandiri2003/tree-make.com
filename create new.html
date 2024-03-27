@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>тяєє</title>
+    <!-- Add your website icon -->
+    <link rel="shortcut icon" href="1.png" type="x-icon">
+    <!-- Add Font Awesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+     <style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        position: relative; /* Ensure the body is positioned */
+        overflow-x: hidden; /* Prevent horizontal scrollbar */
+    }
+
+     body::before {
+        content: ""; /* Create a pseudo-element */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;/* Set width to cover the entire viewport */
+        height:100%;/* Set height to cover the entire viewport */
+        background-image: url('1.png');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 300px;
+        z-index: -1; /* Ensure the pseudo-element is behind the content */
+        animation: flipBackground 10s linear infinite; /* Apply the animation */
+    }
+
+    @keyframes flipBackground {
+        0% {
+            transform: rotateY(0deg);
+        }
+        50% {
+            transform: rotateY(180deg);
+        }
+        100% {
+            transform: rotateY(360deg);
+        }
+    }
+
+    .container {
+        width: 400px;
+        margin: 0 auto;
+        padding-top: 100px; /* Adjust as needed */
+        text-align: center;
+    }
+
+    .container textarea {
+        width: 100%;
+        height: 38px;
+        resize: none;
+        background-color:white;
+        font-size: 16px;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 0;
+        outline: none;
+    }
+
+    .btn {
+        width: 200px;
+        height: 50px;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        background-color: #007bff;
+        font-size: 16px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    #response {
+        margin-top: 20px;
+    }
+
+    /* Style the icons */
+    .link-icon {
+        margin-right: 40px;
+        font-size: 50px;
+    }
+
+    /* Style the links */
+    .link-item {
+        margin-bottom: 10px;
+    }
+
+    /* Style the link text */
+    .link-text {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .link-text:hover {
+        color: #0056b3;
+    }
+
+    .group-links-container {
+        display: none;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div style="background-color:black;">
+    <center><h1>ⓒⓡⓔⓐⓣⓔ ⓨⓞⓤⓡ ⓞⓦⓝ ⓦⓐⓨ</h1></center>
+</div>
+<div style="background-color: orange;">
+    <center><h3>what do you want?</h3></center>
+</div>
+
+<div class="container">
+    <center><textarea id="inputText" placeholder="Search here..."></textarea></center>
+</div>
+
+<center><button class="btn" onclick="handleClick()">Click me</button></center>
+
+<div id="response"></div>
+
+<script>
+    function handleClick() {
+        var inputText = document.getElementById('inputText').value.toLowerCase();
+        var responseDiv = document.getElementById('response');
+        var link, iconClass;
+
+        // Check for individual keywords
+        if (inputText.includes('instagram')) {
+            link = 'https://www.instagram.com/';
+            iconClass = 'fab fa-instagram';
+        } else if (inputText.includes('snapchat')) {
+            link = 'https://www.snapchat.com/';
+            iconClass = 'fab fa-snapchat';
+        } else if (inputText.includes('facebook')) {
+            link = 'https://www.facebook.com/';
+            iconClass = 'fab fa-facebook-f';
+        } else if (inputText.includes('twitter')) {
+            link = 'https://twitter.com/';
+            iconClass = 'fab fa-twitter';
+        } else if (inputText.includes('whatsapp')) {
+            link = 'https://wa.me/';
+            iconClass = 'fab fa-whatsapp';
+        } else if (inputText.includes('amazon')) {
+            link = 'https://www.amazon.com/';
+            iconClass = 'fab fa-amazon';
+        } else if (inputText.includes('ebay')) {
+            link = 'https://www.ebay.com/';
+            iconClass = 'fab fa-ebay';
+        } else if (inputText.includes('flipkart')) {
+            link = 'https://www.flipkart.com/';
+            iconClass = 'fas fa-shopping-cart'; // Using shopping cart icon for Flipkart
+        } else if (inputText.includes('swiggy')) {
+            link = 'https://www.swiggy.com/';
+            iconClass = 'fas fa-utensils'; // Using utensils icon for Swiggy
+        } else if (inputText.includes('zomato')) {
+            link = 'https://www.zomato.com/';
+            iconClass = 'fas fa-drumstick-bite'; // Using chicken drumstick for Zomato
+        } else if (inputText.includes('phonepe')) {
+            link = 'https://www.phonepe.com/';
+            iconClass = 'fas fa-money-bill-alt'; // Using money bill icon for PhonePe
+        } else if (inputText.includes('paytm')) {
+            link = 'https://www.paytm.com/';
+            iconClass = 'fab fa-paytm'; 
+        } else if (inputText.includes('chatgpt')) {
+            link = 'https://www.chatgpt.com/';
+            iconClass = 'fab fa-chatgpt';
+        } else if (inputText.includes('blackbox')) {
+            link = 'https://www.blackbox.global/';
+            iconClass = 'fab fa-blackbox';     
+        } else if (inputText.includes('youtube')) {
+            link = 'https://www.youtube.com/';
+            iconClass = 'fab fa-youtube';
+        } else if (inputText.includes('google maps')) {
+            link = "https://www.google.com/maps?q=40.7128,-74.0060";
+            iconClass = 'fab fa-google maps';
+        } else if (inputText.includes('codechef')) {
+            link = 'https://www.codechef.com/';
+            iconClass = 'fab fa-codechef';
+        } else if (inputText.includes('w3schools')) {
+            link = 'https://www.w3schools.com/';
+            iconClass = 'fab fa-w3schools';
+                } else if (inputText.includes('hackerrank')) {
+            link = 'https://www.hackerrank.com/';
+            iconClass = 'fab fa-hackerrank';
+        } else if (inputText.includes('spotify')) {
+            link = 'https://www.spotify.com/';
+            iconClass = 'fab fa-spotify';
+         } else if (inputText.includes('winky music')) {
+            link = 'https://www.example.com/winky_music';
+            iconClass = 'fab fa-winky music';
+        } else if (inputText.includes('snapseed')) {
+            link = 'https://www.snapseed.com/';
+            iconClass = 'fab fa-snapseed';
+        } else if (inputText.includes('lightroom')) {
+            link = 'https://www.lightroom.com/';
+            iconClass = 'fab fa-lightroom';
+        } else {
+            // Check for grouped keywords
+            if (inputText.includes('socialmedia')) {
+                responseDiv.innerHTML = `
+                <center>
+                    <p>Social Media Links:</p>
+                    <ul>
+                        <li class="link-item"><i class="fab fa-instagram link-icon"></i><a class="link-text" href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+                        <li class="link-item"><i class="fab fa-snapchat link-icon"></i><a class="link-text" href="https://www.snapchat.com/" target="_blank">Snapchat</a></li>
+                        <li class="link-item"><i class="fab fa-facebook-f link-icon"></i><a class="link-text" href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+                        <li class="link-item"><i class="fab fa-twitter link-icon"></i><a class="link-text" href="https://twitter.com/" target="_blank">Twitter</a></li>
+                        <li class="link-item"><i class="fab fa-whatsapp link-icon"></i><a class="link-text" href="https://wa.me/" target="_blank">WhatsApp</a></li>
+                        <li class="link-item"><i class="fab fa-youtube link-icon"></i><a class="link-text" href="https://youtube.com/" target="_blank">youtube</a></li>
+                    </ul></center>
+                `;
+                return; // Stop execution if a grouped keyword is found
+            } else if (inputText.includes('shopping')) {
+                responseDiv.innerHTML = `
+                <center>
+                    <p>Shopping Links:</p>
+                    <ul>
+                        <li class="link-item"><i class="fab fa-amazon link-icon"></i><a class="link-text" href="https://www.amazon.com/" target="_blank">Amazon</a></li>
+                        <li class="link-item"><i class="fab fa-ebay link-icon"></i><a class="link-text" href="https://www.ebay.com/" target="_blank">eBay</a></li>
+                        <li class="link-item"><i class="fas fa-shopping-cart link-icon"></i><a class="link-text" href="https://www.flipkart.com/" target="_blank">Flipkart</a></li>
+                    </ul></center>
+                `;
+                return; // Stop execution if a grouped keyword is found
+                 } else if (inputText.includes('aitools')) {
+                responseDiv.innerHTML = `
+                <div style="background-color:back;"><center><div>
+                    <p>Shopping Links:</p>
+                    <ul>
+                        <li class="link-item"><i class="fab fa-chatgpt link-icon"></i><a class="link-text" href="https://www.chatgpt.com/" target="_blank">chatgpt</a></li>
+                        <li class="link-item"><i class="fab fa-blackbox link-icon"></i><a class="link-text" href="https://www.blackbox.global/" target="_blank">blackbox</a></li>
+                    </ul></center></div>
+                `;
+                return; // Stop execution if a grouped keyword is found
+            } else if (inputText.includes('food')) {
+                responseDiv.innerHTML = `
+                <div style="background-color:black;"><center><div>
+                    <p>Food Links:</p>
+                    <ul>
+                        <li class="link-item"><i class="fas fa-utensils link-icon"></i><a class="link-text" href="https://www.swiggy.com/" target="_blank">Swiggy</a></li>
+                        <li class="link-item"><i class="fas fa-drumstick-bite link-icon"></i><a class="link-text" href="https://www.zomato.com/" target="_blank">Zomato</a></li>
+                    </ul></div></center>
+                `;
+                return; // Stop execution if a grouped keyword is found
+                } else if (inputText.includes('banking')) {
+                                 responseDiv.innerHTML = `
+                    <p>banking Links:</p>
+                    <ul>
+                        <li class="link-item"><i class="fas fa-money-bill-altlink-icon"></i><a class="link-text" href="https://www.phonepe.com/" target="_blank">phonepe</a></li>
+                        <li class="link-item"><i class="fab fa-paytm link-icon"></i><a class="link-text" href="https://www.paytm.com/" target="_blank">paytm</a></li>
+                    </ul></div></center>
+                `;
+                return; // Stop execution if a grouped keyword is found
+               
+                } else if (inputText.includes('locations')) {
+                responseDiv.innerHTML = `
+                <div style="background-color:blue;"><center><div>
+                    <p>banking Links:</p>
+                    <ul>
+                        <li class="link-item"><i class="fab fa maps"></i><a class="link-text" href="https://www.google.com/maps?q=40.7128,-74.0060" target="_blank">google maps</a></li>`;
+                return; // Stop execution if a grouped keyword is found
+                 } else if (inputText.includes('cse course')) {
+                responseDiv.innerHTML = `
+                <div style="background-color:black;"><center><div>
+                    <p>coures Links:</p>
+                    <ul>
+                        <li class="link-item"><i class="fab fa hankerrank"></i><a class="link-text" href= "https://www.hackerrank.com/login" target="_blank">hacker rank</a></li>
+                        <li class="link-item"><i class="fab fa W3schools"></i><a class="link-text" href=  "https://www.w3schools.com/"target="_blank">W3schools</a></li>
+                        <li class="link-item"><i class="fab fa coursera"></i><a class="link-text" href=  "https://www.coursera.com/"target="_blank">coursera</a></li>
+                        <li class="link-item"><i class="fab fa-codechef link-icon"></i><a class="link-text" href="https://www.codechef.com/" target="_blank">codechef</a></li></ul>`;
+                return; // Stop execution if a grouped keyword is found
+                 } else if (inputText.includes('m1videos')) {
+                responseDiv.innerHTML = `
+                <div style="background-color:black;"><center><div>
+                    <p>m1videosLinks:</p>
+                     <ul>
+    <li><a href=" https://youtu.be/ZcMyUftHpVY" target="_blank">YouTube Video 1</a></li>
+    <li><a href="https://youtu.be/H9BCGE9WOjY ="_blank">YouTube Video 2</a></li>
+    <li><a herf="https://youtu.be/FBlJpfij6IU"target ="_blank">YouTube Video 3</a></li>
+</ul>`;
+return; // Stop execution if a grouped keyword is found
+} else if (inputText.includes('music')) {
+                responseDiv.innerHTML = `
+                <center>
+                    <p>music Links:</p>
+                    <ul>
+                        <li class="link-item"><i class="fab fa-spotify link-icon"></i><a class="link-text" href="https://www.spotify.com/" target="_blank">spotify</a></li>
+                        <li class="link-item"><i class="fab fa-winky link-icon"></i><a class="link-text" href="https://www..example.com/winky_music/" target="_blank">winky_music</a></li>
+                    </ul></center>
+                `;
+                return; // Stop execution if a grouped keyword is found 
+                 } else if (inputText.includes('editing')) {
+                                 responseDiv.innerHTML = `
+                    <p>editing links:</p>
+                    <ul><center>
+                        <li class="link-item"><i class="fab fa-lightroom"></i><a class="link-text" href="https://www.lightroom.com/" target="_blank">lightroom</a></li>
+                        <li class="link-item"><i class="fab fa-snapseed"></i><a class="link-text" href="https://www.snapseed.com/" target="_blank">snapseed</a></li>
+                    </ul></center>
+                `;
+                return; // Stop execution if a grouped keyword is found
+
+            } else if (inputText.includes('group')) {
+                // Display the container for group links
+                var groupLinksContainer = document.createElement('div');
+                groupLinksContainer.className = 'group-links-container';
+                groupLinksContainer.innerHTML = `
+                    <p>Group Links:</p>
+                    <ul>
+                        <li class="link-item"><a class="link-text" href="https://example.com/link1" target="_blank">Group Link 1</a></li>
+                        <li class="link-item"><a class="link-text" href="https://example.com/link2" target="_blank">Group Link 2</a></li>
+                        <!-- Add more links as needed -->
+                    </ul>
+                `;
+                responseDiv.appendChild(groupLinksContainer);
+                // Show the container
+                groupLinksContainer.style.display = 'block';
+                return; // Stop execution
+            } else {
+                link = 'unable featch the Search';
+                iconClass = 'error';
+            }
+        }
+
+        // Open the link in a new tab when clicked
+        window.open(link, '_blank');
+    }
+</script>
+
+</body>
+</html>
+
